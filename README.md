@@ -84,11 +84,13 @@ happens immediately is working fine for me.
 
 - [ ] learn c.
 - [ ] learn cpp.
+- [ ] add buttons, sleep mode etc.
 - [ ] turn this into a usable basis for my own and others' projects.
 - [x] document how to build and flash a device (I think I used openOCD
   but frankly it was months ago and I am just whacking this up on GH
   now).
 - [ ] Implement BTHomeV2 Encryption
+- [ ] Fix module width in PCB design
 - [ ] Try to take over the world.
   [Narf!](https://pinkyandthebrain.fandom.com/wiki/Narf)
 - [ ] Choose a license. I haven't chosen a license yet. I need to check the sources I pilfered
