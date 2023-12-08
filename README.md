@@ -4,7 +4,7 @@ This is (currently a proof-of-concept) implementation of the
 [BTHome](https://bthome.io/) protocol for nRF51xx chips (in particular
 the nRF51822).
 
-The idea is to communicate create a BLE (Bluetooth Low Energy) remote
+The idea is to create a BLE (Bluetooth Low Energy) remote
 control with buttons (and perhaps other sensors) that sends data to
 HomeAssistant via ESPHome Bluetooth Proxies.
 
@@ -14,10 +14,10 @@ creating automations.
 
 
 ```
-  +--------+          +-----------+           +-----------+
-  | NerfBT |          |  ESPHome  |           |   Home    |    **~*~*~**
-  | Remote | -(ble)-> | ble_proxy | -(wifi)-> | Assistant | -> * MaGiC *
-  +--------+          +-----------+           +-----------+    **~*~*~**
+  +----------+          +-----------+           +-----------+
+  | NarfButt |          |  ESPHome  |           |   Home    |    **~*~*~**
+  |  Remote  | -(ble)-> | ble_proxy | -(wifi)-> | Assistant | -> * MaGiC *
+  +----------+          +-----------+           +-----------+    **~*~*~**
 ```
 
 My personal goal is to create super-affordable remote control buttons
@@ -97,3 +97,12 @@ happens immediately is working fine for me.
   from (there are comments in the code) and choose a permissive license
   that fits the requirements of the ~~stolen code~~ prior art.
 
+## Credits
+
+- Huge thanks to [Jean-Matthiue
+  DECHRISTE](https://www.iot-experiments.com/nrf51822-and-ble400/) who
+  built something pretty similar hardware-wise using the Arduino stack
+  and a custom phone app back in 2019.
+- Nordic's [nRF51 Series current consumption
+  guide](https://devzone.nordicsemi.com/guides/hardware-design-test-and-measuring/b/nrf5x/posts/nrf51-current-consumption-guide)
+- Everyone around the amazing HomeAssistant project, including ESPHome.
