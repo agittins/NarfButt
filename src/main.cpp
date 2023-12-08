@@ -31,7 +31,7 @@ BLEFixedLengthCharacteristic bthome = BLEFixedLengthCharacteristic("FCD2", BLEBr
 unsigned long interval = 4000; // number of milliseconds between broadcast updates
 unsigned long saved_stamp = 0; // millies stamp of last broadcast run.
 
-const char localName[] = "AJGBleTest";
+const char localName[] = "NarfButt";
 #define TX_POWER 0x04;
 #define VBAT_MAX_IN_MV 3000
 int g_counterValue = 3168;
