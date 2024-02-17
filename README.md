@@ -4,7 +4,7 @@ This is (currently a proof-of-concept) implementation of the
 [BTHome](https://bthome.io/) protocol for nRF51xx chips (in particular
 the nRF51822).
 
-The idea is to communicate create a BLE (Bluetooth Low Energy) remote
+The idea is to create a BLE (Bluetooth Low Energy) remote
 control with buttons (and perhaps other sensors) that sends data to
 HomeAssistant via ESPHome Bluetooth Proxies.
 
@@ -14,18 +14,30 @@ creating automations.
 
 
 ```
-  +--------+          +-----------+           +-----------+
-  | NerfBT |          |  ESPHome  |           |   Home    |    **~*~*~**
-  | Remote | -(ble)-> | ble_proxy | -(wifi)-> | Assistant | -> * MaGiC *
-  +--------+          +-----------+           +-----------+    **~*~*~**
+  +----------+          +-----------+           +-----------+
+  | NarfButt |          |  ESPHome  |           |   Home    |    **~*~*~**
+  | Remote   | -(ble)-> | ble_proxy | -(wifi)-> | Assistant | -> * MaGiC *
+  +----------+          +-----------+           +-----------+    **~*~*~**
 ```
 
 My personal goal is to create super-affordable remote control buttons
 for placing over the top of existing light switches etc for
 home-automation projects.
 
+## Status
+
+- Proof of concept. Sends valid BTHome v2 unencrypted advertisements, with
+  battery percentage level and a bogus temperature measurement that increments
+  with each packet sent.
+
 ## uFAQ
 
+- What's with the name?
+  - [Narf!](https://pinkyandthebrain.fandom.com/wiki/Narf) is the nonsense-word
+    exclamation / catchphrase of Pinky from Pinky and the Brain.
+  - Butts are funny and very unprofessional.
+  - nRF51822... nrf... Narf.
+  - Button... Bluetooth... bt... butt
 - Why not zigbee, zwave or wifi remotes?
   - Cost. I want 6 or so buttons for under AU$10. Tradfi buttons are
     sexy, but too expensive to replace lots of wall switches (for me,
@@ -62,6 +74,11 @@ I use a clone STLink V2 flasher and OpenOCD.
 
 This connects with just the `GND`, `3.3v`, `SWDIO` and `SWCLK` lines.
 
+*Update! The built-in stlink flashing in vscode works.* Just doing a `build`
+and `upload` cycle in vscode should get the firmware on to your device.
+However, if you want to do it without vscode or do something more specific,
+then...
+
 The modules need to be
 mass-erased before flashing. Sometimes this part is hard to get working,
 but ultimately what I've found works is:
@@ -79,6 +96,20 @@ later variant that I've forgotten to update here).
 Currently I'm having issues running openocd interactively, it seems to
 disconnect after a few seconds, but using the command above so it all
 happens immediately is working fine for me.
+
+## Building the Hardware
+
+- There's a PCB layout in the <hardware-pcb> folder, which is my current
+  design for a general-purpose 6-button switch for placing over existing
+  light switches, or using as a stand-alone remote control. I expect to
+  create some variations of this, in particular a version with a rotary
+  encoder might be fun to play with.
+
+![PCB Prototype Back](images/pcb-prototype-back.jpg) ![PCB Prototype Front](images/pcb-prototype-front.jpg)
+
+- Note that the buttons are surface-mounted on the "back" while the NRF module
+  is mounted on the non-trace side. This can be a bit confusing when doing
+  the pcb layout!
 
 ## TODO's (please!)
 
